@@ -1,0 +1,114 @@
+# button.hpp connection.hpp diagram_object.hpp interface.hpp network_component.hpp
+!button.cpp button.hpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar errno.h exception graphics.h initializer_list interface.hpp iosfwd keys_n_colors.h limits limits.h locale.h new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+!button.hpp cctype cerrno clocale connection.hpp cstdint cstdio cstdlib ctype.h cwchar errno.h exception initializer_list interface.hpp iosfwd limits limits.h locale.h network_component.hpp new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo utility vector wchar.h #<#>
+!connection.cpp cctype cerrno clocale connection.hpp cstdint cstdio cstdlib ctype.h cwchar errno.h exception graphics.h initializer_list iosfwd keys_n_colors.h limits limits.h locale.h network_component.hpp new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+!connection.hpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar diagram_object.hpp errno.h exception initializer_list iosfwd limits limits.h locale.h network_component.hpp new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+!diagram_object.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar diagram_object.hpp errno.h exception graphics.h initializer_list iosfwd keys_n_colors.h limits limits.h locale.h new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+!diagram_object.hpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar errno.h exception graphics.h initializer_list iosfwd keys_n_colors.h limits limits.h locale.h new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+!interface.cpp cctype cerrno clocale connection.hpp cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception fstream graphics.h initializer_list interface.hpp ios iosfwd istream keys_n_colors.h limits limits.h locale.h network_component.hpp new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo utility vector wchar.h wctype.h #<#>
+!interface.hpp cctype cerrno clocale connection.hpp cstdint cstdio cstdlib ctype.h cwchar diagram_object.hpp errno.h exception initializer_list iosfwd limits limits.h locale.h network_component.hpp new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo utility vector wchar.h #<#>
+!main.cpp button.hpp cctype cerrno clocale cmath conio.h connection.hpp cstdint cstdio cstdlib ctype.h cwchar diagram_object.hpp errno.h exception graphics.h initializer_list interface.hpp iosfwd keys_n_colors.h limits limits.h locale.h math.h network_component.hpp new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo utility vector wchar.h #<#>
+!network_component.cpp cctype cerrno clocale cmath cstdint cstdio cstdlib ctype.h cwchar diagram_object.hpp errno.h exception graphics.h initializer_list iosfwd keys_n_colors.h limits limits.h locale.h math.h network_component.hpp new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+!network_component.hpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar diagram_object.hpp errno.h exception graphics.h initializer_list iosfwd keys_n_colors.h limits limits.h locale.h new signal.h stddef.h stdint.h stdio.h stdlib.h string string_view type_traits typeinfo wchar.h #<#>
+Button _type_ #<button.hpp>
+Button(const std::string& label, double x, double y) #<button.hpp>
+CommandButton _type_ #<button.hpp>
+CommandButton(int x, int y, const std::string& icon, fun_ptr a) #<button.hpp>
+Connection _type_ #<connection.hpp>
+ControlObject _type_ #<interface.hpp>
+ControlObject() -> virtual~ #<interface.hpp>
+DiagramObject _type_ #<diagram_object.hpp>
+DiagramObject() -> virtual~ #<diagram_object.hpp>
+DiagramObject(const std::string& name, double x, double y) #<diagram_object.hpp>
+IconButton _type_ #<button.hpp>
+IconButton(int x, int y, const std::string& icon) #<button.hpp>
+Interface _type_ #<interface.hpp>
+NetworkComponent _type_ #<network_component.hpp>
+NetworkComponent(const std::string& name, double x, double y, const std::string& ip, const std::string& type) #<network_component.hpp>
+ToolButton _type_ #<button.hpp>
+ToolButton(int x, int y, const std::string& icon, fun_ptr t) #<button.hpp>
+addRouter() -> void #<main.cpp>
+addSwitch() -> void #<main.cpp>
+buttons : Button*[] #<main.cpp>
+init_controls() -> void #<main.cpp>
+networkInterface : Interface #<main.cpp>
+	Button:%x : double #<button.hpp>
+	Button:%y : double #<button.hpp>
+	Button:%label : std::string #<button.hpp>
+	Button::press() -> virtual void #<button.hpp>
+	Button=:draw() -> virtual void #<button.hpp>
+	Button=:isClicked(double cursorX, double cursorY) -> bool #<button.hpp>
+	CommandButton:%action : fun_ptr #<button.hpp>
+	CommandButton:%x : double #<button.hpp>
+	CommandButton:%y : double #<button.hpp>
+	CommandButton:%label : std::string #<button.hpp>
+	CommandButton::press() -> void #<button.hpp>
+	CommandButton::ToolButton(double x, double y, const std::string& label, void(* action)()) #<button.hpp>
+	CommandButton::press() -> virtual void #<button.hpp>
+	CommandButton=:draw() -> void #<button.hpp>
+	CommandButton=:draw() -> virtual void #<button.hpp>
+	CommandButton=:isClicked(double cursorX, double cursorY) -> bool #<button.hpp>
+	Connection:%device1 : NetworkComponent* #<connection.hpp>
+	Connection:%device2 : NetworkComponent* #<connection.hpp>
+	Connection:%connection_name : std::string #<connection.hpp>
+	Connection:%is_wireless : bool #<connection.hpp>
+	Connection::Connection :  #<connection.hpp>
+	Connection::setConnectionName(const std::string& name) -> void #<connection.hpp>
+	Connection=:draw() -> void #<connection.hpp>
+	Connection=:getConnectionName() -> std::string #<connection.hpp>
+	ControlObject=:draw() -> virtual void #<interface.hpp>
+	DiagramObject:%name : std::string #<diagram_object.hpp>
+	DiagramObject:%x : double #<diagram_object.hpp>
+	DiagramObject:%y : double #<diagram_object.hpp>
+	DiagramObject::setName(const std::string& name) -> virtual void #<diagram_object.hpp>
+	DiagramObject=:getName() -> virtual std::string #<diagram_object.hpp>
+	DiagramObject=:draw() -> virtual void #<diagram_object.hpp>
+	IconButton:%icon : std::string #<button.hpp>
+	IconButton:%label_ : std::string #<button.hpp>
+	IconButton:%void :  #<button.hpp>
+	IconButton:%x : double #<button.hpp>
+	IconButton:%y : double #<button.hpp>
+	IconButton:%label : std::string #<button.hpp>
+	IconButton::ToolButton(double x, double y, const std::string& label, void(* action)()) #<button.hpp>
+	IconButton::press() -> void #<button.hpp>
+	IconButton::press() -> virtual void #<button.hpp>
+	IconButton=:draw() -> void #<button.hpp>
+	IconButton=:draw() -> virtual void #<button.hpp>
+	IconButton=:isClicked(double cursorX, double cursorY) -> bool #<button.hpp>
+	Interface:%components : std::vector #<interface.hpp>
+	Interface:%connections : std::vector #<interface.hpp>
+	Interface::addComponent : void #<interface.hpp>
+	Interface::removeComponent(int index) -> void #<interface.hpp>
+	Interface::findComponentByCoords(double x, double y) -> NetworkComponent* #<interface.hpp>
+	Interface::addConnection(int index1, int index2, const std::string& type) -> void #<interface.hpp>
+	Interface::checkHover(double cursorX, double cursorY) -> NetworkComponent* #<interface.hpp>
+	Interface::saveDiagram(const std::string& filename) -> void #<interface.hpp>
+	Interface::loadDiagram(const std::string& filename) -> void #<interface.hpp>
+	Interface::clearDiagram() -> void #<interface.hpp>
+	Interface::draw() -> void #<interface.hpp>
+	NetworkComponent:%ip_address : std::string #<network_component.hpp>
+	NetworkComponent:%type : std::string #<network_component.hpp>
+	NetworkComponent:%name : std::string #<network_component.hpp>
+	NetworkComponent:%x : double #<network_component.hpp>
+	NetworkComponent:%y : double #<network_component.hpp>
+	NetworkComponent::setIPAddress(const std::string& ip) -> void #<network_component.hpp>
+	NetworkComponent::setName(const std::string& name) -> virtual void #<network_component.hpp>
+	NetworkComponent=:draw() -> void #<network_component.hpp>
+	NetworkComponent=:getIPAddress() -> std::string #<network_component.hpp>
+	NetworkComponent=:dotProduct(const double* vectorA, const double* vectorB, int size) -> double #<network_component.hpp>
+	NetworkComponent=:distanceToCursor(double cursorX, double cursorY) -> double #<network_component.hpp>
+	NetworkComponent=:isHovered(double cursorX, double cursorY) -> bool #<network_component.hpp>
+	NetworkComponent=:getX() -> double #<network_component.hpp>
+	NetworkComponent=:getY() -> double #<network_component.hpp>
+	NetworkComponent=:getName() -> virtual std::string #<network_component.hpp>
+	NetworkComponent=:draw() -> virtual void #<network_component.hpp>
+	ToolButton:%tool : fun_ptr #<button.hpp>
+	ToolButton:%x : double #<button.hpp>
+	ToolButton:%y : double #<button.hpp>
+	ToolButton:%label : std::string #<button.hpp>
+	ToolButton::press() -> void #<button.hpp>
+	ToolButton::ToolButton(double x, double y, const std::string& label, void(* action)()) #<button.hpp>
+	ToolButton::press() -> virtual void #<button.hpp>
+	ToolButton=:draw() -> void #<button.hpp>
+	ToolButton=:draw() -> virtual void #<button.hpp>
+	ToolButton=:isClicked(double cursorX, double cursorY) -> bool #<button.hpp>
